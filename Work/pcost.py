@@ -7,7 +7,7 @@ import report
 
 
 def portfolio_cost(filename):
-    return sum(row.cost for row in report.read_portfolio(filename))
+    return report.read_portfolio(filename).total_cost
 
 
 def main():
