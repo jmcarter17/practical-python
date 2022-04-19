@@ -46,7 +46,6 @@ class HTMLTableFormatter(TableFormatter):
             print(f"<th>{h}</th>", end='')
         print("</tr>", end='')
         print()
-        # print(','.join(headers))
 
     def row(self, rowdata):
         print("<tr>", end='')
@@ -54,7 +53,6 @@ class HTMLTableFormatter(TableFormatter):
             print(f"<td>{d}</td>", end='')
         print("</tr>", end='')
         print()
-        # print(','.join(rowdata))
 
 
 class FormatError(Exception):
