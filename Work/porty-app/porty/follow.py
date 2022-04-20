@@ -24,7 +24,7 @@ def filematch(lines, substr):
 
 
 def main():
-    import report
+    from porty import report
 
     portfolio = report.read_portfolio("Data/portfolio.csv")
 

@@ -1,6 +1,6 @@
 import pytest
 
-import stock
+from porty import stock
 
 
 def test_createstock():

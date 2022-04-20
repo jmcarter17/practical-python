@@ -3,7 +3,7 @@
 # Exercise 1.27
 
 import sys
-import report
+from porty import report
 
 
 def portfolio_cost(filename):
@@ -14,7 +14,7 @@ def main():
     if len(sys.argv) == 2:
         filename = sys.argv[1]
     else:
-        filename = 'Data/portfolio.csv'
+        filename = '../../Data/portfolio.csv'
 
     cost = portfolio_cost(filename)
     print(f"Total cost: ${cost}")

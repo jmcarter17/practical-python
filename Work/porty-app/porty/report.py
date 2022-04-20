@@ -2,10 +2,10 @@
 #
 # Exercise 2.4
 
-from fileparse import parse_csv
-from portfolio import Portfolio
+from porty.fileparse import parse_csv
+from porty.portfolio import Portfolio
 
-import tableformat
+from porty import tableformat
 
 
 def read_prices(filename):
@@ -45,20 +45,20 @@ def portfolio_report(portfolio_filename, prices_filename, fmt):
 
 
 def main(argv):
-    # if len(argv) < 3:
-    #     raise SystemExit(f'Usage: {argv[0]} ' 'portfolio_file price_file')
-    # portfile = argv[1]
-    # pricefile = argv[2]
-    # fmt = argv[3] if len(argv) >= 4 else "txt"
-    # portfolio_report(portfile, pricefile, fmt)
-    portfolio_report("Data/portfolio.csv", "Data/prices.csv", "txt")
+    if len(argv) < 3:
+        raise SystemExit(f'Usage: {argv[0]} ' 'portfolio_file price_file')
+    portfile = argv[1]
+    pricefile = argv[2]
+    fmt = argv[3] if len(argv) >= 4 else "txt"
+    portfolio_report(portfile, pricefile, fmt)
+    # portfolio_report("../../Data/portfolio.csv", "Data/prices.csv", "txt")
 
 
 if __name__ == "__main__":
     import sys
     import logging
     logging.basicConfig(
-        filename="report.log",
+        filename="../report.log",
         filemode="w",
         level=0
     )
