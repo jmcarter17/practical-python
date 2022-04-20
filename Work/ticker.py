@@ -7,24 +7,19 @@ import tableformat
 
 
 def select_columns(rows, indices):
-    for row in rows:
-        yield [row[index] for index in indices]
+    return ([row[index] for index in indices] for row in rows)
 
 
 def convert_types(rows, types):
-    for row in rows:
-        yield [func(val) for func, val in zip(types, row)]
+    return ([func(val) for func, val in zip(types, row)] for row in rows)
 
 
 def make_dicts(rows, headers):
-    for row in rows:
-        yield dict(zip(headers, row))
+    return (dict(zip(headers, row)) for row in rows)
 
 
 def filter_symbols(rows, names):
-    for row in rows:
-        if row['name'] in names:
-            yield row
+    return (row for row in rows if row['name'] in names)
 
 
 def parse_stock_data(lines):
@@ -39,7 +34,7 @@ def parse_stock_data(lines):
 def ticker(portfile, logfile, fmt="txt"):
     formatter = tableformat.create_formatter(fmt)
     portfolio = report.read_portfolio(portfile)
-    lines = follow("Data/stocklog.csv")
+    lines = follow(logfile)
     rows = filter_symbols(parse_stock_data(lines), portfolio)
     formatter.headings(["Name", "Price", "Change"])
     for row in rows:
