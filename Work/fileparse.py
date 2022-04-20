@@ -3,6 +3,8 @@
 # Exercise 3.3
 
 import csv
+import logging
+log = logging.getLogger(__name__)
 
 
 def parse_csv(csvlines, *, select=None, types=None, has_headers=True, delimiter=",", silence_errors=False):
@@ -34,7 +36,7 @@ def parse_csv(csvlines, *, select=None, types=None, has_headers=True, delimiter=
             records.append(record)
         except ValueError as e:
             if silence_errors is False:
-                print(f"Row {no}: Couldn't convert {row}")
-                print(f"Row {no}: Reason {e}")
+                log.warning(f"Row {no}: Couldn't convert {row}")
+                log.debug(f"Row {no}: Reason {e}")
 
     return records

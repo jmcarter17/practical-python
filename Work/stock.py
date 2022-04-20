@@ -15,22 +15,12 @@ class Stock:
     def __repr__(self):
         return f"Stock({self.name}, {self.shares}, {self.price})"
 
-    # @property
-    # def cost(self):
-    #     return self.shares * self.price
-    #
-    # def sell(self, amt):
-    #     self.shares = max(0, self.shares - amt)
+    @property
+    def cost(self):
+        return self.shares * self.price
 
-    # @property
-    # def shares(self):
-    #     return self._shares
-    #
-    # @shares.setter
-    # def shares(self, value):
-    #     if not isinstance(value, int):
-    #         raise TypeError('Expected int')
-    #     self._shares = value
+    def sell(self, amt):
+        self.shares = max(0, self.shares - amt)
 
 
 # @dataclass

@@ -56,4 +56,10 @@ def main(argv):
 
 if __name__ == "__main__":
     import sys
+    import logging
+    logging.basicConfig(
+        filename="report.log",
+        filemode="w",
+        level=0
+    )
     main(sys.argv)
